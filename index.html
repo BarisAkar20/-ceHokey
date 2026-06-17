@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hava Hokeyi Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-wrapper">
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hud hidden">
+      <div class="hud-bar">
+        <div class="hud-player p1">
+          <img id="hud-logo1" class="hud-logo" alt="">
+          <div class="hud-info">
+            <span id="hud-name1" class="hud-name">Oyuncu 1</span>
+            <span id="score1" class="hud-score">0</span>
+            <div class="ulti-wrap">
+              <span class="ulti-label">ULTİ <kbd>V</kbd></span>
+              <div class="ulti-bar"><div id="ulti-fill1" class="ulti-fill"></div></div>
+            </div>
+          </div>
+          <div id="skills1" class="skill-bar"></div>
+        </div>
+
+        <div class="hud-center">
+          <div class="timer-wrap">
+            <span id="match-mode-label" class="match-mode-label">Klasik Maç</span>
+            <div id="timer-bar" class="timer-bar"><div id="timer-fill" class="timer-fill"></div></div>
+            <span id="timer-text" class="timer-text">2:00</span>
+          </div>
+        </div>
+
+        <div class="hud-player p2">
+          <div id="skills2" class="skill-bar"></div>
+          <div class="hud-info right">
+            <span id="hud-name2" class="hud-name">Oyuncu 2</span>
+            <span id="score2" class="hud-score">0</span>
+            <div class="ulti-wrap right">
+              <span class="ulti-label"><kbd>0</kbd> ULTİ</span>
+              <div class="ulti-bar"><div id="ulti-fill2" class="ulti-fill p2"></div></div>
+            </div>
+          </div>
+          <img id="hud-logo2" class="hud-logo" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div id="countdown" class="countdown hidden"></div>
+    <div id="announce" class="announce hidden"></div>
+
+    <div id="menu" class="menu">
+      <div class="menu-inner">
+        <header class="menu-header">
+          <h1>Hava Hokeyi</h1>
+          <p class="menu-tagline">Süper Lig & NBA Arenaları</p>
+        </header>
+
+        <div class="menu-grid">
+          <section class="menu-panel">
+            <h3>👤 Oyuncular</h3>
+            <div class="name-row">
+              <label>Oyuncu 1</label>
+              <input id="name-p1" type="text" maxlength="14" placeholder="İsmini yaz..." value="Oyuncu 1" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="name-row">
+              <label>Oyuncu 2</label>
+              <input id="name-p2" type="text" maxlength="14" placeholder="İsmini yaz..." value="Oyuncu 2" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="mode-row">
+              <button class="mode-btn active" data-mode="2p">2 Oyuncu</button>
+              <button class="mode-btn" data-mode="1p">1 Oyuncu (AI)</button>
+            </div>
+          </section>
+
+          <section class="menu-panel">
+            <h3>⚽ Takım Seç <span class="panel-hint">Oyuncu 1 / Oyuncu 2</span></h3>
+            <div class="team-select-tabs">
+              <button class="team-tab active" data-player="0">Oyuncu 1</button>
+              <button class="team-tab" data-player="1">Oyuncu 2</button>
+            </div>
+            <div id="team-grid" class="team-grid"></div>
+          </section>
+
+          <section class="menu-panel full">
+            <h3>🎮 Maç Modu</h3>
+            <div id="match-mode-grid" class="match-mode-grid"></div>
+          </section>
+
+          <section class="menu-panel full">
+            <h3>🏟 Saha Seç</h3>
+            <div id="stadium-grid" class="stadium-grid"></div>
+          </section>
+        </div>
+
+        <button id="btn-play" class="play-btn">MAÇA BAŞLA</button>
+        <p class="menu-footer">Oy1: WASD + V ulti · Oy2: Ok tuşları + 0 ulti · Esc: menü</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
